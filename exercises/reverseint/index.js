@@ -15,8 +15,8 @@ function reverseInt(n) {
     .split("")
     .reverse()
     .join("");
-  // ternary if the value if positive/negative
-  return n < 0 ? parseInt(reversed) * -1: parseInt(reversed);
+  // assign returned value based on positive/negative of 'n'
+  return parseInt(reversed) * Math.sign(n);
 }
 
 // function reverseInt(n) {
