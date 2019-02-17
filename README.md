@@ -1,3 +1,6 @@
 # AlgoCasts
 
-Companion repo to a course on Udemy.com
+Code Kata Drills to improve problem solving skills in Computer Science Fundamentals:
+## Algorithms
+## Data Structures
+## Searching & Sorting
