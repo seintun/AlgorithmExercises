@@ -10,9 +10,19 @@ function maxChar(str) {
   let max = 0;
   let maxChar = "";
 
+  // for (let char of str) {
+  //   if (charMap[char]) {
+  //     charMap[char]++;
+  //   } else {
+  //     charMap[char] = 1;
+  //   }
+  // }
+
+  // Alternative code with ternary for existence of char in charMap
   for (let char of str) {
     charMap[char] = charMap[char] ? +1 : 1;
   }
+  
   for (let char in charMap) {
     if (charMap[char] > max) {
       max = charMap[char];
