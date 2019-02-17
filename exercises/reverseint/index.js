@@ -15,12 +15,23 @@ function reverseInt(n) {
     .split("")
     .reverse()
     .join("");
-  // assign negative if under 0
-  if (n < 0) {
-    return parseInt(reversed) * -1;
-  }
-  // otherwise return the value since positive
-  return parseInt(reversed);
+  // ternary if the value if positive/negative
+  return n < 0 ? parseInt(reversed) * -1: parseInt(reversed);
 }
+
+// function reverseInt(n) {
+//   // reverse the array after converted to string
+//   const reversed = n
+//     .toString()
+//     .split("")
+//     .reverse()
+//     .join("");
+//   // assign negative if under 0
+//   if (n < 0) {
+//     return parseInt(reversed) * -1;
+//   }
+//   // otherwise return the value since positive
+//   return parseInt(reversed);
+// }
 
 module.exports = reverseInt;
