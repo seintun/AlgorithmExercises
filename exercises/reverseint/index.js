@@ -8,6 +8,19 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-function reverseInt(n) {}
+function reverseInt(n) {
+  // reverse the array after converted to string
+  const reversed = n
+    .toString()
+    .split("")
+    .reverse()
+    .join("");
+  // assign negative if under 0
+  if (n < 0) {
+    return parseInt(reversed) * -1;
+  }
+  // otherwise return the value since positive
+  return parseInt(reversed);
+}
 
 module.exports = reverseInt;
