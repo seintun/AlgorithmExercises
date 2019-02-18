@@ -13,11 +13,7 @@ function maxChar(str) {
   for (let char of str) {
     char = char.toLowerCase();
     if (/[a-z0-9]/.test(char)) {
-      if (charMap[char]) {
-        charMap[char]++;
-      } else {
-        charMap[char] = 1;
-      }
+      charMap[char] = ++charMap[char] || 1;
     }
   }
 
