@@ -11,11 +11,10 @@ function capitalize(str) {
   const splitArr = str.split(" ");
   let capitalized = "";
   for (let char of splitArr) {
-    if (capitalized === "") {
-      capitalized = char[0].toUpperCase() + char.slice(1);
-    } else {
-      capitalized += " " + char[0].toUpperCase() + char.slice(1);
-    }
+    capitalized =
+      capitalized === ""
+        ? char[0].toUpperCase() + char.slice(1)
+        : (capitalized += " " + char[0].toUpperCase() + char.slice(1));
   }
   return capitalized;
 }
