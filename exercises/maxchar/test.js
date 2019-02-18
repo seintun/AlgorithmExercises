@@ -12,3 +12,7 @@ test('Finds the most frequently used char', () => {
 test('Works with numbers in the string', () => {
   expect(maxChar('ab1c1d1e1f1g1')).toEqual('1');
 });
+
+test('Works with character mixed of Uppercase & Lowercase in the string', () => {
+  expect(maxChar('Apple Peach 123 Pineapple!!!')).toEqual('p');
+});
