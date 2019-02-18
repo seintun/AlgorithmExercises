@@ -14,11 +14,14 @@ function capitalize(str) {
 
   for (let i = 1; i < str.length; i++) {
     // Capitalize the current element, if there is space on the left/previous element
-    if (str[i - 1] === " ") {
-      result += str[i].toUpperCase();
-    } else {
-      result += str[i];
-    }
+    // Solved using ternary
+    result += str[i - 1] === " " ? str[i].toUpperCase() : str[i];
+
+    // if (str[i - 1] === " ") {
+    //   result += str[i].toUpperCase();
+    // } else {
+    //   result += str[i];
+    // }
   }
   return result;
 }
