@@ -7,16 +7,31 @@
 //   capitalize('a lazy fox') --> 'A Lazy Fox'
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
-// Solution 02
+// Solution 03
 function capitalize(str) {
-  const words = [];
+  // Capitalize the first character of final result
+  let result = str[0].toUpperCase();
 
-  for (let word of str.split(" ")) {
-    words.push(word[0].toUpperCase() + word.slice(1));
+  for (let i = 1; i < str.length; i++) {
+    // Capitalize the current element, if there is space on the left/previous element
+    if (str[i - 1] === " ") {
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i];
+    }
   }
-  
-  return words.join(' ');
+  return result;
 }
+// // Solution 02
+// function capitalize(str) {
+//   const words = [];
+
+//   for (let word of str.split(" ")) {
+//     words.push(word[0].toUpperCase() + word.slice(1));
+//   }
+
+//   return words.join(' ');
+// }
 
 // // Solution 01
 // function capitalize(str) {
