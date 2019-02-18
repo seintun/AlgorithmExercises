@@ -9,31 +9,46 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-  const aCharMap = buildCharMap(stringA);
-  const bCharMap = buildCharMap(stringB);
-
-  // Validation if aCharMap and bCharMap has the same number of keys
-  if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
-    return false;
-  }
-  
-  // Compare if each key exist with aCharMap and bCharMap
-  for (let char in aCharMap) {
-    if (aCharMap[char] !== bCharMap[char]) {
-      return false;
-    }
-  }
-  return true;
+  // Comparte formatted string if equal
+  return formatter(stringA) === formatter(stringB);
+}
+// Helper function that removes non-alphanumeric, convert lowercase, split/sort/join
+function formatter(str) {
+  return str
+    .replace(/[^\w]/g, "")
+    .toLowerCase()
+    .split("")
+    .sort()
+    .join("");
 }
 
-// Helper function that remove any non-alphanumeric and convert into lowercase
-// charMap will hold the count of each alphanumeric that appears
-function buildCharMap(str) {
-  const charMap = {};
+// function anagrams(stringA, stringB) {
+//   const aCharMap = buildCharMap(stringA);
+//   const bCharMap = buildCharMap(stringB);
 
-  for (let char of str.replace(/[^\w]/g, "").toLowerCase()) {
-    charMap[char] = charMap[char] + 1 || 1;
-  }
-  return charMap;
-}
+//   // Validation if aCharMap and bCharMap has the same number of keys
+//   if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+//     return false;
+//   }
+
+//   // Compare if each key exist with aCharMap and bCharMap
+//   for (let char in aCharMap) {
+//     if (aCharMap[char] !== bCharMap[char]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// // Helper function that remove any non-alphanumeric and convert into lowercase
+// // charMap will hold the count of each alphanumeric that appears
+// function buildCharMap(str) {
+//   const charMap = {};
+
+//   for (let char of str.replace(/[^\w]/g, "").toLowerCase()) {
+//     charMap[char] = charMap[char] + 1 || 1;
+//   }
+//   return charMap;
+// }
+
 module.exports = anagrams;
