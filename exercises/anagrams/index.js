@@ -8,20 +8,50 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+// Solution 03
 function anagrams(stringA, stringB) {
   // Comparte formatted string if equal
-  return formatter(stringA) === formatter(stringB);
-}
-// Helper function that removes non-alphanumeric, convert lowercase, split/sort/join
-function formatter(str) {
-  return str
-    .replace(/[^\w]/g, "")
-    .toLowerCase()
-    .split("")
-    .sort()
-    .join("");
+  if (stringA.length !== stringB.length) {
+    return false;
+  }
+  const lookup = {};
+
+  // set value with lookup and increment per frequency
+  for (let i = 0; i < stringA.length; i++) {
+    let letter = stringA[i];
+    // if the letter exists, increment otherwise set to 1
+    lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
+  }
+  // compare each letter of stringB with lookup and decremenet the value
+  for (let i = 0; i < stringB.length; i++) {
+    let letter = stringB[i];
+    // if can't find letter or letter is zero, then it's not an anagram
+    if (!lookup[letter]) {
+      return false;
+    } else {
+      lookup[letter] -= 1;
+    }
+  }
+  // after for loop on stringB is completed and all letter exists
+  return true;
 }
 
+//  // Solution 02
+// function anagrams(stringA, stringB) {
+//   // Comparte formatted string if equal
+//   return formatter(stringA) === formatter(stringB);
+// }
+// // Helper function that removes non-alphanumeric, convert lowercase, split/sort/join
+// function formatter(str) {
+//   return str
+//     .replace(/[^\w]/g, "")
+//     .toLowerCase()
+//     .split("")
+//     .sort()
+//     .join("");
+// }
+
+//  // Solution 01
 // function anagrams(stringA, stringB) {
 //   const aCharMap = buildCharMap(stringA);
 //   const bCharMap = buildCharMap(stringB);
